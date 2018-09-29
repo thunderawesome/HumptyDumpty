@@ -14,7 +14,7 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
+  - BounceUI
   - 
   - 
   - 
@@ -40,4 +40,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BounceUI
+    uniqueID: 3494920803
     locked: 0
