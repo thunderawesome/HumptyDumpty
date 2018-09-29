@@ -9,7 +9,7 @@ public class AddRandomForce : MonoBehaviour
 
     #endregion
 
-    protected void Start()
+    protected void OnEnable()
     {
         bool makeXNegative = Random.Range(0, 1) == 1;
         bool makeYNegative = Random.Range(0, 1) == 1;
