@@ -60,6 +60,13 @@ public class GameManager : MonoBehaviour
         willToLiveSlider.value = willToLiveMeterValue;
 
         m_camManager.isMoving = true;
+        if (value <= 0)
+            StartCoroutine(AudioCtrl.Instance.PlayAudio(SFX.DOWN));
+        else
+        {
+            StartCoroutine(AudioCtrl.Instance.PlayAudio(SFX.UP));
+        }
+
         m_camManager.targetPosition = Vector3.Lerp(m_mainCamera.transform.position, finalCamPosition, (MAX_METER_VALUE - willToLiveMeterValue)/MAX_METER_VALUE);
     }
 
