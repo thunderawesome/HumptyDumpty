@@ -30,6 +30,10 @@ public class DialogController : MonoBehaviour
 
     #region Public Methods
 
+    /// <summary>
+    /// Moves to the next group of Dialog choices and circles
+    /// back to the first set if no more dialogs exist.
+    /// </summary>
     public void MoveToNext()
     {
         dialogSets[index].gameObject.SetActive(false);
@@ -43,11 +47,6 @@ public class DialogController : MonoBehaviour
         }
 
         dialogSets[index].gameObject.SetActive(true);
-    }
-
-    public void DisableDialogSet()
-    {
-        gameObject.SetActive(false);
     }
 
     #endregion
