@@ -1641,7 +1641,7 @@ Prefab:
     - target: {fileID: 224000010938417916, guid: a3eed328005158e49ab7f043323bdcc9,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224000010938417916, guid: a3eed328005158e49ab7f043323bdcc9,
         type: 2}
@@ -2485,6 +2485,7 @@ MonoBehaviour:
   willToLiveMeterValue: 100
   willToLiveSlider: {fileID: 382237242}
   animator: {fileID: 1363850277}
+  fadeToBlack: {fileID: 1378057669}
 --- !u!4 &624169357
 Transform:
   m_ObjectHideFlags: 0
@@ -2938,6 +2939,7 @@ MonoBehaviour:
   cameraSFX:
   - {fileID: 8300000, guid: b84fbe22483794d43952a9e3cdcf5da7, type: 3}
   - {fileID: 8300000, guid: 7c52dd8ebf8456441a30c3d83234882e, type: 3}
+  eggBreakSFX: {fileID: 8300000, guid: 590c0954ea4c3594a991684e908b7893, type: 3}
 --- !u!4 &639174550
 Transform:
   m_ObjectHideFlags: 0
@@ -4044,8 +4046,8 @@ RectTransform:
   m_Children:
   - {fileID: 738587848}
   - {fileID: 1111962821}
-  - {fileID: 1378057668}
   - {fileID: 382237243}
+  - {fileID: 1378057668}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7376,7 +7378,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 796358174}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

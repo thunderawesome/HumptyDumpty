@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     public Animator animator;
 
+    public Image fadeToBlack;
+
     #endregion
 
     #region Private Variables
@@ -84,7 +86,17 @@ public class GameManager : MonoBehaviour
         willToLiveMeterValue = MIN_METER_VALUE;
         willToLiveSlider.value = willToLiveMeterValue;
 
-        yield return null; //TODO: Fade to black
+        var fadeTime = 5f;
+
+        var t = 0f;
+        while (t < 1)
+        {
+            t += Time.deltaTime / fadeTime;
+            fadeToBlack.color = Color.Lerp(fadeToBlack.color, Color.black, t);
+            yield return null;
+        }
+
+        AudioManager.Instance.PlaySoundFX(AudioManager.Instance.GetComponent<AudioSource>(), AudioManager.Instance.eggBreakSFX);
     }
 
     #endregion

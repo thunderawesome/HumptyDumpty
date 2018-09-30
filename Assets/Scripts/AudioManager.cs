@@ -8,6 +8,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip[] cameraSFX;
 
+    public AudioClip eggBreakSFX;
+
     #endregion
 
     #region Unity Methods
