@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     public Slider willToLiveSlider;
 
+    public Animator animator;
+
     #endregion
 
     #region Private Variables
@@ -44,6 +46,8 @@ public class GameManager : MonoBehaviour
     public void ChangeMeterValue(float value)
     {
         willToLiveMeterValue += value;
+
+        animator.SetFloat("Blend", willToLiveMeterValue/MAX_METER_VALUE);
 
         var sfxIndex = value > 0 ? 0 : 1;
         AudioManager.Instance.PlaySoundFX(m_camManager.audioSource, AudioManager.Instance.cameraSFX[sfxIndex]);

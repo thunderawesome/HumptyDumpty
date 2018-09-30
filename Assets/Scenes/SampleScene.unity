@@ -3073,6 +3073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   willToLiveMeterValue: 100
   willToLiveSlider: {fileID: 627220753}
+  animator: {fileID: 2011054422}
   finalCamPosition: {x: 0, y: 1.35, z: -0.65}
 --- !u!4 &1412932446
 Transform:
@@ -3766,6 +3767,11 @@ RectTransform:
 --- !u!1 &2011054419 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1300142263421006, guid: 79c9eb05e13cbd7408d23adf2935fc48,
+    type: 2}
+  m_PrefabInternal: {fileID: 1485567611}
+--- !u!95 &2011054422 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95234213348180558, guid: 79c9eb05e13cbd7408d23adf2935fc48,
     type: 2}
   m_PrefabInternal: {fileID: 1485567611}
 --- !u!114 &2011054425
