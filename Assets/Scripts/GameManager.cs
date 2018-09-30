@@ -15,7 +15,10 @@ public class GameManager : MonoBehaviour
     public Animator animator;
 
     public Image fadeToBlack;
-    public TMPro.TextMeshProUGUI gameOverText;
+    public TMPro.TextMeshProUGUI gameOverTextMeshPro;
+
+    public string winningText = "You did the right thing";
+    public string losingText = "You should be ashamed of yourself";
 
     #endregion
 
@@ -41,6 +44,14 @@ public class GameManager : MonoBehaviour
         m_camManager = m_mainCamera.GetComponent<CameraManager>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
     #endregion
 
     #region Public Methods
@@ -62,7 +73,8 @@ public class GameManager : MonoBehaviour
 
         if (willToLiveMeterValue >= MAX_METER_VALUE)
         {
-            willToLiveMeterValue = MAX_METER_VALUE;
+            StartCoroutine(NotAnAsshole());
+            return;
         }
 
         willToLiveSlider.value = willToLiveMeterValue;
@@ -80,6 +92,37 @@ public class GameManager : MonoBehaviour
         // TJS: if the value is greater than zero then it means it is a positive thing (UP sfx)
         var sfxIndex = value > 0 ? 0 : 1;
         AudioManager.Instance.PlaySoundFX(m_camManager.audioSource, AudioManager.Instance.cameraSFX[sfxIndex]);
+    }
+
+    private IEnumerator NotAnAsshole()
+    {
+        willToLiveMeterValue = MAX_METER_VALUE;
+        willToLiveSlider.value = willToLiveMeterValue;
+
+        DialogController.Instance.DisableAll();
+
+        var fadeTime = 5f;
+
+        var t = 0f;
+        while (t < 1)
+        {
+            t += Time.deltaTime / fadeTime;
+            fadeToBlack.color = Color.Lerp(fadeToBlack.color, Color.black, t);
+
+            yield return null;
+        }
+
+
+        //AudioManager.Instance.PlaySoundFX(AudioManager.Instance.GetComponent<AudioSource>(), AudioManager.Instance.eggBreakSFX);
+        gameOverTextMeshPro.text = winningText;
+
+        fadeTime = 124f;
+        t = 0f;
+        while (t < 1)
+        {
+            t += Time.deltaTime / fadeTime;            
+            gameOverTextMeshPro.color = Color.Lerp(gameOverTextMeshPro.color, Color.white, t);
+        }
     }
 
     private IEnumerator GameOver()
@@ -102,13 +145,14 @@ public class GameManager : MonoBehaviour
 
         
         AudioManager.Instance.PlaySoundFX(AudioManager.Instance.GetComponent<AudioSource>(), AudioManager.Instance.eggBreakSFX);
+        gameOverTextMeshPro.text = losingText;
 
         fadeTime = 124f;
         t = 0f;
         while (t < 1)
         {
             t += Time.deltaTime / fadeTime;           
-            gameOverText.color = Color.Lerp(gameOverText.color, Color.white, t);
+            gameOverTextMeshPro.color = Color.Lerp(gameOverTextMeshPro.color, Color.white, t);
         }
     }
 
