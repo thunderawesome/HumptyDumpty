@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public Animator animator;
 
     public Image fadeToBlack;
+    public TMPro.TextMeshProUGUI gameOverText;
 
     #endregion
 
@@ -86,6 +87,8 @@ public class GameManager : MonoBehaviour
         willToLiveMeterValue = MIN_METER_VALUE;
         willToLiveSlider.value = willToLiveMeterValue;
 
+        DialogController.Instance.DisableAll();
+
         var fadeTime = 5f;
 
         var t = 0f;
@@ -93,12 +96,23 @@ public class GameManager : MonoBehaviour
         {
             t += Time.deltaTime / fadeTime;
             fadeToBlack.color = Color.Lerp(fadeToBlack.color, Color.black, t);
+
             yield return null;
         }
 
-        DialogController.Instance.DisableAll();
+        
         AudioManager.Instance.PlaySoundFX(AudioManager.Instance.GetComponent<AudioSource>(), AudioManager.Instance.eggBreakSFX);
+
+        fadeTime = 124f;
+        t = 0f;
+        while (t < 1)
+        {
+            t += Time.deltaTime / fadeTime;           
+            gameOverText.color = Color.Lerp(gameOverText.color, Color.white, t);
+        }
     }
+
+
 
     #endregion
 }
