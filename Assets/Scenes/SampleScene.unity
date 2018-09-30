@@ -1389,8 +1389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd5348ce93fe1cf4aa46d648a37d856d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMoving: 0
-  timeToMove: 2
+  startingPosition: {x: 0, y: 0, z: 0}
   finalCamPosition: {x: 0, y: 1.35, z: -0.65}
   targetPosition: {x: 0, y: 0, z: 0}
   audioSource: {fileID: 0}
@@ -1659,11 +1658,11 @@ Prefab:
       objectReference: {fileID: 8300000, guid: 95432cef82e49d340800676491b94713, type: 3}
     - target: {fileID: 1265228061507836, guid: 960c9174a9ff78a4890c42310220b51c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1395442752839984, guid: 960c9174a9ff78a4890c42310220b51c, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1072236101966890, guid: 960c9174a9ff78a4890c42310220b51c, type: 2}
       propertyPath: m_IsActive
@@ -1671,17 +1670,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1778925693537422, guid: 960c9174a9ff78a4890c42310220b51c, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114119243242965050, guid: 960c9174a9ff78a4890c42310220b51c,
         type: 2}
       propertyPath: dialogType
-      value: -10
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114873607892118820, guid: 960c9174a9ff78a4890c42310220b51c,
         type: 2}
       propertyPath: dialogType
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1265228061507836, guid: 960c9174a9ff78a4890c42310220b51c, type: 2}
       propertyPath: m_Name
@@ -1754,7 +1753,7 @@ Prefab:
     - target: {fileID: 114072746355291244, guid: 960c9174a9ff78a4890c42310220b51c,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114523300721327256, guid: 960c9174a9ff78a4890c42310220b51c,
         type: 2}
@@ -1765,6 +1764,45 @@ Prefab:
         type: 2}
       propertyPath: m_havePropertiesChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114072746355291244, guid: 960c9174a9ff78a4890c42310220b51c,
+        type: 2}
+      propertyPath: m_text
+      value: How's it going today?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114072746355291244, guid: 960c9174a9ff78a4890c42310220b51c,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395442752839984, guid: 960c9174a9ff78a4890c42310220b51c, type: 2}
+      propertyPath: m_Name
+      value: GoodDay
+      objectReference: {fileID: 0}
+    - target: {fileID: 114072746355291244, guid: 960c9174a9ff78a4890c42310220b51c,
+        type: 2}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114072746355291244, guid: 960c9174a9ff78a4890c42310220b51c,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 114072746355291244, guid: 960c9174a9ff78a4890c42310220b51c,
+        type: 2}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114072746355291244, guid: 960c9174a9ff78a4890c42310220b51c,
+        type: 2}
+      propertyPath: m_fontSize
+      value: 57.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114072746355291244, guid: 960c9174a9ff78a4890c42310220b51c,
+        type: 2}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 960c9174a9ff78a4890c42310220b51c, type: 2}
@@ -3074,7 +3112,6 @@ MonoBehaviour:
   willToLiveMeterValue: 100
   willToLiveSlider: {fileID: 627220753}
   animator: {fileID: 2011054422}
-  finalCamPosition: {x: 0, y: 1.35, z: -0.65}
 --- !u!4 &1412932446
 Transform:
   m_ObjectHideFlags: 0
