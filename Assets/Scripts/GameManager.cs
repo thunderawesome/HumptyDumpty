@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
 
     private CameraManager m_camManager;
 
-    public Vector3 finalCamPosition;
 
     #endregion
 
@@ -55,7 +54,7 @@ public class GameManager : MonoBehaviour
         if (willToLiveMeterValue <= MIN_METER_VALUE)
         {
             //TODO: Game over
-            GameOver();
+            StartCoroutine(GameOver());
             return;
         }
 
@@ -66,16 +65,17 @@ public class GameManager : MonoBehaviour
 
         willToLiveSlider.value = willToLiveMeterValue;
 
-        m_camManager.isMoving = true;
-        m_camManager.targetPosition = Vector3.Lerp(m_mainCamera.transform.position, finalCamPosition, (MAX_METER_VALUE - willToLiveMeterValue)/MAX_METER_VALUE);
-
-        
+        m_camManager.targetPosition = Vector3.Lerp(m_camManager.startingPosition, m_camManager.finalCamPosition, (MAX_METER_VALUE - willToLiveMeterValue)/MAX_METER_VALUE);
+        Debug.LogFormat("Target Position: {0}", m_camManager.targetPosition);
+        m_camManager.StartCoroutine(m_camManager.MoveToPosition(m_mainCamera.transform, m_camManager.targetPosition, 2));
     }    
 
-    private void GameOver()
+    private IEnumerator GameOver()
     {
         willToLiveMeterValue = MIN_METER_VALUE;
         willToLiveSlider.value = willToLiveMeterValue;
+
+        yield return null; //TODO: 
     }
 
     #endregion

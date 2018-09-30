@@ -1,40 +1,31 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    public bool isMoving = false;
-
-    public float currentTime = 0f;
-    public float timeToMove = 2f;
-
+    [HideInInspector]
+    public Vector3 startingPosition;
+    public Vector3 finalCamPosition;
+    [HideInInspector]
     public Vector3 targetPosition;
-
     public AudioSource audioSource;
+
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        startingPosition = transform.position;
     }
 
-    void Update()
+    public IEnumerator MoveToPosition(Transform transform, Vector3 position, float timeToMove)
     {
-        if (isMoving == true)
+        var currentPos = transform.position;
+        var t = 0f;
+        while (t < 1)
         {
-            if (currentTime <= timeToMove)
-            {
-                currentTime += Time.deltaTime;
-                // The step size is equal to speed times frame time.
-                float step = (timeToMove * Time.deltaTime)/12f;
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
-            }
-            else
-            {
-               // transform.position.x = 2.3f;
-                currentTime = 0f;
-                isMoving = false;
-            }
+            t += Time.deltaTime / timeToMove;
+            transform.position = Vector3.Lerp(currentPos, position, t);
+            yield return null;
         }
     }
-
-
 }
