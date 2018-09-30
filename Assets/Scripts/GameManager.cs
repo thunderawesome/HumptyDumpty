@@ -58,12 +58,15 @@ public class GameManager : MonoBehaviour
 
     public void ChangeMeterValue(float value)
     {
-        willToLiveMeterValue += value;
 
         // TJS: Blends the happy/sad face animation of the egg depending on the slider value
         animator.SetFloat("Blend", willToLiveMeterValue / MAX_METER_VALUE);
 
         PlaySFXDependingOnPositiveOrNegativeValue(value);
+
+        if (value == 0) { return; }
+
+        willToLiveMeterValue += value;
 
         if (willToLiveMeterValue <= MIN_METER_VALUE)
         {

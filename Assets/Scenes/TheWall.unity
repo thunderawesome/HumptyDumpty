@@ -669,7 +669,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 257
+  m_textAlignment: 258
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1891,22 +1891,22 @@ Prefab:
     - target: {fileID: 114000010939584876, guid: a3eed328005158e49ab7f043323bdcc9,
         type: 2}
       propertyPath: m_Value
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 224000011536759458, guid: a3eed328005158e49ab7f043323bdcc9,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000011536759458, guid: a3eed328005158e49ab7f043323bdcc9,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000013387749794, guid: a3eed328005158e49ab7f043323bdcc9,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 114000010939584876, guid: a3eed328005158e49ab7f043323bdcc9,
         type: 2}
@@ -2601,7 +2601,6 @@ RectTransform:
   - {fileID: 1873597419}
   - {fileID: 830588125}
   - {fileID: 885043384}
-  - {fileID: 970908095}
   m_Father: {fileID: 738587848}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2637,11 +2636,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2184ef292c28aaf4987f9c92a5e1ddf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  willToLiveMeterValue: 100
+  willToLiveMeterValue: 50
   willToLiveSlider: {fileID: 382237242}
   animator: {fileID: 1363850277}
   fadeToBlack: {fileID: 1378057669}
-  gameOverText: {fileID: 245275172}
+  gameOverTextMeshPro: {fileID: 245275172}
+  winningText: You did the right thing
+  losingText: You should be ashamed of yourself
 --- !u!4 &624169357
 Transform:
   m_ObjectHideFlags: 0
@@ -4931,7 +4932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 210f523dbf5209a40aae55e5c4fb5097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogType: 10
+  dialogType: 0
 --- !u!114 &830588127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5992,7 +5993,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 565255345}
+  m_Father: {fileID: 1549812325}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -8596,6 +8597,7 @@ RectTransform:
   - {fileID: 363994822}
   - {fileID: 1257831800}
   - {fileID: 1996643110}
+  - {fileID: 970908095}
   m_Father: {fileID: 738587848}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
