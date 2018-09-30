@@ -45,6 +45,9 @@ public class GameManager : MonoBehaviour
     {
         willToLiveMeterValue += value;
 
+        var sfxIndex = value > 0 ? 0 : 1;
+        AudioManager.Instance.PlaySoundFX(m_camManager.audioSource, AudioManager.Instance.cameraSFX[sfxIndex]);
+
         if (willToLiveMeterValue <= MIN_METER_VALUE)
         {
             //TODO: Game over
@@ -61,7 +64,9 @@ public class GameManager : MonoBehaviour
 
         m_camManager.isMoving = true;
         m_camManager.targetPosition = Vector3.Lerp(m_mainCamera.transform.position, finalCamPosition, (MAX_METER_VALUE - willToLiveMeterValue)/MAX_METER_VALUE);
-    }
+
+        
+    }    
 
     private void GameOver()
     {

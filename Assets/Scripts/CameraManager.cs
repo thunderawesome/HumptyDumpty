@@ -1,15 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
     public bool isMoving = false;
 
-    float currentTime = 0f;
-    float timeToMove = 2f;
+    public float currentTime = 0f;
+    public float timeToMove = 2f;
 
     public Vector3 targetPosition;
+
+    public AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -18,7 +23,9 @@ public class CameraManager : MonoBehaviour
             if (currentTime <= timeToMove)
             {
                 currentTime += Time.deltaTime;
-                transform.position = Vector3.Lerp(transform.position, targetPosition, currentTime / timeToMove);
+                // The step size is equal to speed times frame time.
+                float step = (timeToMove * Time.deltaTime)/12f;
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
             }
             else
             {
