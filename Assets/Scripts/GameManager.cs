@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
+        DialogController.Instance.DisableAll();
         AudioManager.Instance.PlaySoundFX(AudioManager.Instance.GetComponent<AudioSource>(), AudioManager.Instance.eggBreakSFX);
     }
 

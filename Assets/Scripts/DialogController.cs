@@ -49,5 +49,13 @@ public class DialogController : MonoBehaviour
         dialogSets[index].gameObject.SetActive(true);
     }
 
+    public void DisableAll()
+    {
+        for (int i = 0; i < dialogSets.Length; i++)
+        {
+            dialogSets[i].gameObject.SetActive(false);
+        }
+    }
+
     #endregion
 }
